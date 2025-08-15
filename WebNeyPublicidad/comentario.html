@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicaciones de Clientes</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <header>
+        <h1>Comentarios de Nuestros Clientes</h1>
+    </header>
+    <div class="container">
+        <form id="comentarioForm">
+            <h2>Deja tu Comentario</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+
+            <label for="comentario">Comentario:</label>
+            <textarea id="comentario" rows="4" required></textarea>
+
+            <button type="submit">Publicar</button>
+        </form>
+        <div id="comentarios">
+            <h2>Comentarios Publicados</h2>
+            <ul id="listaComentarios"></ul>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Tu Nombre. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        document.getElementById('comentarioForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const comentario = document.getElementById('comentario').value;
+            const listaComentarios = document.getElementById('listaComentarios');
+
+            const nuevoComentario = document.createElement('li');
+            nuevoComentario.textContent = `${nombre}: ${comentario}`;
+            listaComentarios.appendChild(nuevoComentario);
+
+            // Limpiar el formulario
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>

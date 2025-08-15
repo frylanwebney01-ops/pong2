@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Combinada con JS</title>
+    <link rel="stylesheet" href="combinat.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        #contenido {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>FrylanWebNey</h1>
+    <button onclick="cargarPagina1()">Portafolio</button>
+    <button onclick="cargarPagina2()">Tus comentario</button>
+    <div id="contenido"></div>
+
+    <script>
+        function cargarPagina1() {
+            fetch('portafolio.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('contenido').innerHTML = data;
+                });
+        }
+
+        function cargarPagina2() {
+            fetch('comentario.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('contenido').innerHTML = data;
+                });
+        }
+    </script>
+</body>
+
+</html>
